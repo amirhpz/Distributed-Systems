@@ -1,0 +1,52 @@
+
+-- انتخاب keyspace
+USE iut_ds;
+
+-- ایجاد جدول users
+CREATE TABLE IF NOT EXISTS users (
+    user_id int PRIMARY KEY,
+    first_name text,
+    last_name text,
+    email text
+);
+
+-- درج کاربر جدید
+INSERT INTO users (user_id, first_name, last_name, email)
+VALUES (1, 'Ali', 'Rezaei', 'ali@example.com');
+
+-- انتخاب تمام کاربران
+SELECT * FROM users;
+
+-- ویرایش کاربر
+UPDATE users SET email = 'ali.rezaei@iut.ac.ir' WHERE user_id = 1;
+
+-- حذف یک کاربر
+DELETE FROM users WHERE user_id = 1;
+
+-- حذف تمام کاربران
+TRUNCATE users;
+
+
+-- ساخت جدول user_posts
+CREATE TABLE IF NOT EXISTS user_posts (
+    user_id int,
+    post_id int,
+    content text,
+    created_at timestamp,
+    PRIMARY KEY (user_id, created_at)
+) WITH CLUSTERING ORDER BY (created_at DESC);
+
+-- درج پست‌ها برای تست
+INSERT INTO user_posts (user_id, post_id, content, created_at)
+VALUES (1, 101, 'My first post!', toTimestamp(now()));
+INSERT INTO user_posts (user_id, post_id, content, created_at)
+VALUES (1, 102, 'Cassandra is amazing 🚀', toTimestamp(now()));
+INSERT INTO user_posts (user_id, post_id, content, created_at)
+VALUES (1, 103, 'This is a test post for user 1.', toTimestamp(now()));
+INSERT INTO user_posts (user_id, post_id, content, created_at)
+VALUES (2, 201, 'Hello from user 2!', toTimestamp(now()));
+INSERT INTO user_posts (user_id, post_id, content, created_at)
+VALUES (2, 202, 'Another day, another post.', toTimestamp(now()));
+
+-- مشاهده پست‌های یک کاربر
+SELECT * FROM user_posts WHERE user_id = 1;

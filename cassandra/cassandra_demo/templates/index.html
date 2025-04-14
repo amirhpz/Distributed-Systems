@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>فرم ثبت‌نام</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: Vazir, sans-serif;
+            direction: rtl;
+        }
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+        .card {
+            border-radius: 10px;
+        }
+        .card-body {
+            padding: 2rem;
+        }   
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="card shadow-sm col-md-6 mx-auto">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4">📝 فرم ثبت‌نام کاربر</h3>
+            <form action="{{ url_for('register') }}" method="post">
+                <div class="mb-3">
+                    <label class="form-label">نام:</label>
+                    <input type="text" name="first_name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">نام خانوادگی:</label>
+                    <input type="text" name="last_name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">ایمیل:</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+                <div class="text-center d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-success">ثبت‌نام</button>
+                    <a href="{{ url_for('list_users') }}" class="btn btn-outline-secondary">مشاهده لیست کاربران</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

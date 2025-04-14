@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>ثبت موفق</title>
+
+    <!-- Load Bootstrap and Vazir font -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font/dist/font-face.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        /* Apply Vazir font and RTL direction */
+        body {
+            font-family: Vazir, sans-serif;
+            direction: rtl;
+            background-color: #f6f6f6;
+        }
+
+        /* Simple card-like alert box */
+        .alert {
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            background-color: #e9f7ef;
+        }
+
+        h4 {
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            padding: 6px 16px;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main container -->
+<div class="container mt-5 col-md-3">
+    <!-- Success message box -->
+    <div class="alert text-center shadow-sm">
+        <h4>✅ {{ name }} با موفقیت ثبت شد!</h4>
+
+        <!-- Action buttons: new form & user list -->
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <a href="{{ url_for('list_users') }}" class="btn btn-success">👥 مشاهده کاربران</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
