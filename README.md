@@ -22,16 +22,6 @@ It contains the implementation, documentation, and final presentation of my work
 
 ---
 
-## 🛠️ Technologies & Concepts
-
-- RPC / Message Passing
-- Distributed Coordination
-- Fault Tolerance
-- Consistency Models
-- and more...
-
----
-
 ## 📂 Folder Structure
 
 ```bash
